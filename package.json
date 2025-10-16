@@ -1,0 +1,61 @@
+{
+  "name": "browser-extension",
+  "version": "1.0.0",
+  "description": "A Chrome Extension with Clean Architecture",
+  "main": "dist/background.js",
+  "scripts": {
+    "build": "webpack --config config/webpack/webpack.prod.ts",
+    "build:dev": "webpack --config config/webpack/webpack.dev.ts",
+    "watch": "webpack --config config/webpack/webpack.dev.ts --watch",
+    "clean": "rimraf dist",
+    "type-check": "tsc --noEmit --project config/typescript/tsconfig.base.json",
+    "type-check:build": "tsc --project config/typescript/tsconfig.build.json",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "manifest:dev": "node scripts/generate-manifest.js dev",
+    "manifest:prod": "node scripts/generate-manifest.js prod",
+    "prebuild": "npm run manifest:prod",
+    "prebuild:dev": "npm run manifest:dev"
+  },
+  "keywords": [
+    "chrome-extension",
+    "browser-extension",
+    "clean-architecture",
+    "typescript",
+    "react"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chrome": "^0.1.24",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.7.2",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@typescript-eslint/eslint-plugin": "^8.46.1",
+    "@typescript-eslint/parser": "^8.46.1",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^13.0.1",
+    "css-loader": "^7.1.2",
+    "eslint": "^9.37.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.0",
+    "html-webpack-plugin": "^5.6.4",
+    "jest": "^30.2.0",
+    "rimraf": "^6.0.1",
+    "style-loader": "^4.0.0",
+    "terser-webpack-plugin": "^5.3.14",
+    "ts-jest": "^29.4.5",
+    "ts-loader": "^9.5.4",
+    "typescript": "^5.9.3",
+    "webpack": "^5.102.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-merge": "^6.0.1"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  }
+}

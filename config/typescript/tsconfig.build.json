@@ -1,0 +1,46 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    // Build-specific overrides
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    
+    // Output
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "removeComments": true,
+    
+    // Optimization
+    "importHelpers": true,
+    "downlevelIteration": true,
+    
+    // Chrome Extension specific
+    "types": ["chrome"],
+    "typeRoots": ["./node_modules/@types", "./src/shared/types"],
+    
+    // Build optimizations
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "incremental": true,
+    "tsBuildInfoFile": "./dist/.tsbuildinfo"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "coverage",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "config/**/*",
+    "scripts/**/*"
+  ]
+}
